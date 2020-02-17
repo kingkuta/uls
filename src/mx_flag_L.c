@@ -17,6 +17,23 @@ void do_ls(char dirname[]) {
     }
 }
 
+void list_file(char* directory){
+    DIR *d;
+    struct dirent *dir;
+
+    d = opendir(directory);
+    if (d) {
+        while ((dir = readdir(d)) != NULL)
+        {
+//            struct stat buf;
+            if(dir->d_type == DT_DIR) {
+                printf("%s\n", dir->d_name);
+            }
+        }
+
+        closedir(d);
+    }
+}
 
 void do_stat(char *filename) {
     struct stat info;
@@ -28,7 +45,7 @@ void do_stat(char *filename) {
 }
 
 
-void show_file_info(char *filename, struct stat *info_p){
+void show_file_info(char *filename, struct stat *info_p) {
     char *uid_to_name(), *ctime(), *gid_to_name(), *filemode();
     void mode_to_letters();
     char modestr[11];
@@ -65,7 +82,7 @@ void mode_to_letters(int mode, char str[]) {
     if (mode & S_IXOTH) str[9] = 'x';
 }
 
-char *uid_to_name(uid_t uid){
+char *uid_to_name(uid_t uid) {
     struct passwd *getpwuid(), *pw_ptr;
     static char numstr[10];
 
@@ -76,7 +93,7 @@ char *uid_to_name(uid_t uid){
         return pw_ptr->pw_name;
 }
 
-char *gid_to_name(gid_t gid){
+char *gid_to_name(gid_t gid) {
     struct group *getgrgid(), *grp_ptr;
     static char numstr[10];
 

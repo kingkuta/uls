@@ -14,16 +14,27 @@
 #include <pwd.h>
 #include <grp.h>
 
+typedef struct s_flag {
+    int flag;
+} t_flag;
 
-void do_ls(char[]);
-void do_stat(char *);
-void show_file_info( char *, struct stat*);
-void mode_to_letters(int, char[]);
-char *uid_to_name(uid_t);
-char *gid_to_name(gid_t);
-int mx_strcmp(const char *s1, const char *s2);
-char *mx_strcpy(char *dst, const char *src);
-
+typedef enum e_flag {
+    a,
+    A,
+    R,
+    G,
+    h,
+    @,
+    e,
+    T,
+    1,
+    C,
+    r,
+    t,
+    u,
+    c,
+    S
+} e_flag;
 
 
 #endif

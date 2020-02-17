@@ -1,10 +1,10 @@
 NAME = uls
 INC = inc/uls.h
 OBJH = obj/uls.h
-SRCS = src/mx_main.c src/mx_flag_L.c
-SRC = mx_main.o mx_flag_L.o
-OBJC = obj/mx_main.c obj/mx_flag_L.c
-OBJ = obj/mx_main.o obj/mx_flag_L.o
+SRCS = src/main.c src/mx_flag_L.c
+SRC = main.o mx_flag_L.o
+OBJC = obj/main.c obj/mx_flag_L.c
+OBJ = obj/main.o obj/mx_flag_L.o
 
 CFLAGS = -std=c11 -Wall -Wextra -Werror -Wpedantic
 
